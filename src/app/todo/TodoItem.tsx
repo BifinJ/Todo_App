@@ -18,7 +18,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, setDeleteConfirmation, setCom
     >
       <div>
         <div className="flex items-center space-x-2">
-          <h3 className="text-lg font-semibold text-black">{todo.id}    {todo.title}</h3>
+          <h3 className="text-lg font-semibold text-black">{todo.title}</h3>
           <span
             className={`px-2 py-1 rounded-full text-xs ${
               todo.priority === 'high'
