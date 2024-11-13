@@ -1,14 +1,14 @@
 "use client";
 import React, { useState, useMemo, useEffect } from 'react';
-import Filters from '../../components/Filters';
-import TodoList from '../../components/TodoList';
-import ConfirmationModal from '../../components/ConfirmationModal';
-import Header from '../../components/Header';
 import { useAuth } from '../Context/AuthContext';
 import { Todo } from '../types';
 import axios from 'axios';
 import { SpinnerIcon } from '../icons/icons';
-import AddTodoButton from '@/components/addTodoButton';
+import Header from './Header';
+import Filters from './Filters';
+import TodoList from './TodoList';
+import ConfirmationModal from './ConfirmationModal';
+import AddTodoButton from './addTodoButton';
 
 const TodoPage = () => {
   const { user } = useAuth();
