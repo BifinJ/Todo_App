@@ -5,7 +5,6 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  sendEmailVerification,
   GoogleAuthProvider,
   signInWithPopup,
   UserCredential,
@@ -37,14 +36,14 @@ const signUpWithEmail = async (
       email,
       password
     );
-    const user = userCredential.user;
-    if (user) {
-      await sendEmailVerification(user);
-      alert(
-        "Signup successful! A verification email has been sent to your email address."
-      );
-      console.log("Signup successful, verification email sent.");
-    }
+    // const user = userCredential.user;
+    // if (user) {
+    //   await sendEmailVerification(user);
+    //   alert(
+    //     "Signup successful! A verification email has been sent to your email address."
+    //   );
+    //   console.log("Signup successful, verification email sent.");
+    // }
     return userCredential; // Return the UserCredential object
   } catch (error) {
     if (error instanceof Error) {
@@ -66,13 +65,13 @@ const loginWithEmail = async (
       email,
       password
     );
-    const user = userCredential.user;
-    if (user.emailVerified) {
-      console.log("Login successful");
-      return userCredential; // Return the UserCredential object
-    } else {
-      console.warn("Please verify your email before logging in.");
-    }
+    // const user = userCredential.user;
+    // if (user.emailVerified) {
+    //   console.log("Login successful");
+    //   return userCredential; // Return the UserCredential object
+    // } else {
+    //   console.warn("Please verify your email before logging in.");
+    // }
     console.log("Login successful");
     return userCredential; // Return the UserCredential object
   } catch (error) {

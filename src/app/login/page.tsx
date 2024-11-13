@@ -4,7 +4,6 @@ import axios from 'axios';
 import { ArrowRightIcon, EmailIcon, GoogleIcon, PasswordIcon, SpinnerIcon, UserIcon } from '../icons/icons';
 import { loginWithEmail, loginWithGoogle, signUpWithEmail } from '../firebase_config';
 import { useAuth } from '../Context/AuthContext';
-import { sendEmailVerification } from 'firebase/auth';
 import { User } from '../types';
 import { useRouter } from 'next/navigation';
 
@@ -46,8 +45,8 @@ const LoginPage = () => {
           userCredential = await signUpWithEmail(email, password);
           console.log(userCredential)
           if (userCredential?.user) {
-            await sendEmailVerification(userCredential?.user); // Send email verification
-            setError("Verification email sent. Please check your inbox.");
+            // await sendEmailVerification(userCredential?.user); // Send email verification
+            // setError("Verification email sent. Please check your inbox.");
             const response = await axios.post('/api/user/create', {
               email,
               username,
@@ -59,6 +58,7 @@ const LoginPage = () => {
               name: response.data.user.name,
             }
             setUser(user); // Set user data in AuthContext
+            router.push("/todo")
           }
         } else {
           setError("Passwords do not match.");
